@@ -1,21 +1,21 @@
 package com.invemtory.inventory_management.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "InventoryQuantity")
+@Table(name = "inventory_quantity")
 public class InventoryQuantity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+     @Column(name = "id")
+     private Long id;
+     @Column(name = "book_id")
      private Long bookId;
+     @Column(name = "location_id")
      private Long locationId;
      private Long quantity;
+
 
     public InventoryQuantity() {}
 

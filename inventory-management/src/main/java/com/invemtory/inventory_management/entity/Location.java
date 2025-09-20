@@ -1,20 +1,20 @@
 package com.invemtory.inventory_management.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Location")
+@Table(name = "location") // 🔥 Best to use lowercase for H2
 public class Location {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
+
+    @Column(name = "name")
     private String name;
 
     public Location() {}
+
     public Location(Long id, String name) {
         this.id = id;
         this.name = name;
@@ -28,12 +28,11 @@ public class Location {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
